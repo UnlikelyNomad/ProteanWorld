@@ -8,9 +8,38 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Sprite",
+"class": "LayerSprite",
+"language": "GDScript",
+"path": "res://Scripts/Render/LayerSprite.gd"
+}, {
+"base": "LayerSprite",
+"class": "SurfaceLayer",
+"language": "GDScript",
+"path": "res://Scripts/Render/Surface.gd"
+}, {
+"base": "Node2D",
+"class": "WorldController",
+"language": "GDScript",
+"path": "res://Scripts/World/WorldController.gd"
+}, {
+"base": "Node",
+"class": "WorldGen",
+"language": "GDScript",
+"path": "res://Scripts/World/WorldGen.gd"
+}, {
+"base": "Reference",
+"class": "WorldMap",
+"language": "GDScript",
+"path": "res://Scripts/World/WorldMap.gd"
+} ]
 _global_script_class_icons={
-
+"LayerSprite": "",
+"SurfaceLayer": "",
+"WorldController": "",
+"WorldGen": "",
+"WorldMap": ""
 }
 
 [application]

@@ -1,5 +1,113 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="WorldCreationUI" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+[ext_resource path="res://UI/WorldCreationUI.gd" type="Script" id=1]
+
+[node name="WorldCreationUI" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Period" type="Control" parent="."]
+editor/display_folded = true
+
+[node name="Label" type="Label" parent="Period"]
+margin_right = 140.0
+margin_bottom = 20.0
+text = "Period"
+align = 2
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="Period"]
+margin_left = 150.0
+margin_right = 450.0
+margin_bottom = 20.0
+min_value = 1.0
+value = 30.0
+
+[node name="Persistence" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 20.0
+
+[node name="Label" type="Label" parent="Persistence"]
+margin_right = 140.0
+margin_bottom = 20.0
+text = "Persistence"
+align = 2
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="Persistence"]
+margin_left = 150.0
+margin_right = 450.0
+margin_bottom = 20.0
+max_value = 1.0
+step = 0.001
+value = 0.7
+
+[node name="WaterCoverage" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 40.0
+
+[node name="Label" type="Label" parent="WaterCoverage"]
+margin_right = 140.0
+margin_bottom = 20.0
+text = "Water Coverage"
+align = 2
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="WaterCoverage"]
+margin_left = 150.0
+margin_right = 450.0
+margin_bottom = 20.0
+max_value = 1.0
+step = 0.001
+value = 0.7
+
+[node name="Coasts" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 60.0
+
+[node name="Label" type="Label" parent="Coasts"]
+margin_right = 140.0
+margin_bottom = 20.0
+text = "Coasts"
+align = 2
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="Coasts"]
+margin_left = 150.0
+margin_right = 450.0
+margin_bottom = 20.0
+min_value = 0.5
+max_value = 4.0
+step = 0.001
+value = 1.2
+
+[node name="Midlands" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 80.0
+
+[node name="Label" type="Label" parent="Midlands"]
+margin_right = 140.0
+margin_bottom = 20.0
+text = "Midlands"
+align = 2
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="Midlands"]
+margin_left = 150.0
+margin_right = 450.0
+margin_bottom = 20.0
+max_value = 0.2
+step = 0.001
+value = 0.1
+
+[node name="Button" type="Button" parent="."]
+margin_left = 460.0
+margin_top = 5.0
+margin_right = 12.0
+margin_bottom = 95.0
+text = "Randomize"
+[connection signal="value_changed" from="Period/HSlider" to="." method="period_changed"]
+[connection signal="value_changed" from="Persistence/HSlider" to="." method="persistence_changed"]
+[connection signal="value_changed" from="WaterCoverage/HSlider" to="." method="water_coverage_changed"]
+[connection signal="value_changed" from="Coasts/HSlider" to="." method="coasts_changed"]
+[connection signal="value_changed" from="Midlands/HSlider" to="." method="midlands_changed"]
+[connection signal="pressed" from="Button" to="." method="randomize_clicked"]
